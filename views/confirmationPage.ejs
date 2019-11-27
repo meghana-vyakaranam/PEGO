@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../stylesheets/confirmationPage.css">
+        <link rel="stylesheet" href="../stylesheets/font_loginPage.css">
+
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="http://localhost:3000/web/dependencies/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+
+        <script src="http://localhost:3000/web/dependencies/jquery-3.3.1/jquery.min.js"></script>
+        <script src="../javascripts/confirmationPage.js"></script>
+    </head>
+    <body>
+        <section class="pricing py-5">
+        <div class="container">
+            <div class="row">
+            <!-- Free Tier -->
+            <div class="col-lg-4">
+                <div class="card mb-5 mb-lg-0">
+                <div class="card-body">
+                        <h6 class="card-price text-center" name="amount">Order Summary</h6>
+                        <input type="text" id="prod_id" style="display: none" value="<%= product_info.product_id %>">
+                        <hr>
+                        <ul class="fa-ul">
+                        <li><span class="fa-li"></span>Name: <%= product_info.name %></li>
+                        <li><span class="fa-li"></span>Description: <%= product_info.description %></li>
+                        <li><span class="fa-li"></span>Base Cost: INR <%= product_info.cost %></li>
+                        <li><span class="fa-li"></span>Tariff: INR <%= 0.01*parseFloat(product_info.cost) %></li>
+                        <input type="text" id="total_amount" style="display: none" value="<%= product_info.amount %>">Total amount: INR <%= product_info.amount %>
+
+                        </ul>
+                        <input type="button" class="btn btn-block btn-primary text-uppercase" value="Confirm Order" onclick="submitForm()">
+                </div>
+                </div>
+            </div>
+            </div>
+        </div>
+        </section>
+        <script src="http://localhost:3000/web/dependencies/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+    </body>
+</html>

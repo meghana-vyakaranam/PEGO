@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include partials/head %>
+</head>
+
+<body>
+  <% include partials/menu %>
+  <div class="container-fluid bg-3 text-center">
+    <h3><%= page %></h3><br>
+    <% if(name!=null){ %>
+      <h3>Welcome <%= name %></h3><br>
+    <% } %>
+    <div>
+      <h1><a href="http://localhost:3000/web/search.html">Search</a></h1>
+    </div>
+  </div>
+</body>
+<% include partials/script %>
+
+</html>

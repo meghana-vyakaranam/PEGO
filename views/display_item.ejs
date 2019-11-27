@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="http://localhost:3000/web/dependencies/bootstrap-4.3.1-dist/css/bootstrap.min.css">
+
+  <script src="http://localhost:3000/web/dependencies/jquery-3.3.1/jquery.min.js"></script>
+  
+  <!-- Custom styles for this template -->
+  <link href="../stylesheets/display_item.css" rel="stylesheet">
+  <script src="../javascripts/display_item.js"></script>
+  <script src="../javascripts/display_map.js"></script>
+
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkKbYe0Bw1zHKebcEmtUp45m4jT_h51WQ"> </script>
+
+  <script>
+    function start()
+    {
+      setTimeout(showimg, 1000);
+    }
+  </script>
+
+</head>
+
+<body onload="start()">
+
+  <!-- Navigation -->
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+
+      <!-- /.col-lg-3 -->
+
+      <div class="col-md-8">
+
+        <div class="card mt-4">
+          <div style="display: none;"><% var img_url="http://localhost:3000/images/"+product_info.picture_url.slice(1)+"/1.jpg" %></div>
+          <div style="display: none" id="product"><%= img_url %></div>
+          <div id="actualimage"></div>
+            <!-- <img class="card-img-top img-fluid" src='<%= img_url %>' alt=""> -->
+          
+          <div class="card-body">
+            <h3 class="card-title"> <%= product_info.name %> </h3>
+            <h4><%= product_info.cost %></h4>
+            <p class="card-text"><%= product_info.description %></p>
+            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+          </div>
+        </div>
+        <!-- /.card -->
+        
+        <div class="card card-outline-secondary my-4">
+                <div class="card-header">
+                  Product Features
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                    <% 
+                        var features=product_info.features.split(";");
+                        for(var i=0;i < features.length; i++){
+                    %>
+                        <li class="list-group-item"><%= features[i] %></li>
+                    </ul>
+                    <% } %>
+                </div>
+        </div>
+
+        <!-- <div class="card card-outline-secondary my-4">
+          <div class="card-header">
+            Product Reviews
+          </div>
+          <div class="card-body">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+            <hr>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis et enim aperiam inventore, similique necessitatibus neque non! Doloribus, modi sapiente laboriosam aperiam fugiat laborum. Sequi mollitia, necessitatibus quae sint natus.</p>
+            <small class="text-muted">Posted by Anonymous on 3/1/17</small>
+            <hr>
+            <a href="#" class="btn btn-success">Leave a Review</a>
+          </div>
+        </div>
+        /.card -->
+
+      </div>
+      <!-- /.col-lg-9 -->
+
+       <!-- Side Widget -->
+       <div class="col-md-4">
+          <div class="card my-4">
+            <h5 class="card-header">Details of owner</h5>
+            <div class="card-body">
+                <p id="userid" style="display: none"><%= owner_info.user_id %></p>
+                <p>Name: <%= owner_info.fullname %></p>
+                <p>Email: <%= owner_info.email_id %></p>
+                <p>Rating: <%= owner_info.rating %>/5</p>
+            </div>
+              <button type="submit" class="btn btn-primary btn-small"><a id="submit_id" onclick="validateOrder(event)" href="#" style="color:white">Pay and Order</a></button>
+              <h1 style="display: none" id="prod_id"><%= product_info.product_id %></h1>
+              <h7 class="text-center" style="display: none;color: brown" id="error_prompt">*Cannot place order</h7>
+          </div>
+
+       <div class="card my-4">
+          <h5 class="card-header">Location</h5>
+          <div class="card-body" id="map">
+
+          </div>
+        </div>
+    </div>
+    </div>
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; Your Website 2019</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="http://localhost:3000/web/dependencies/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
